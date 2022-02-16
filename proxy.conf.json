@@ -1,0 +1,8 @@
+{
+  "/api": {
+    "_comment": "change /target/ for build to AWS ...http://health-server:8080",
+    "_comment": "http://localhost:8080",
+    "target": "http://health-server:8080",
+    "secure": false
+  }
+}

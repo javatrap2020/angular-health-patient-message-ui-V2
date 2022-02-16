@@ -66,10 +66,13 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "angular-health-patient-message-ui-V2:build",
+            "proxyConfig": "proxy.conf.json"
+          },
           "configurations": {
             "production": {
-              "browserTarget": "angular-health-patient-message-ui-V2:build:production",
-              "proxyConfig": "proxy.conf.json"
+              "browserTarget": "angular-health-patient-message-ui-V2:build:production"
             },
             "development": {
               "browserTarget": "angular-health-patient-message-ui-V2:build:development"

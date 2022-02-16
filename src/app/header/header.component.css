@@ -1,0 +1,12 @@
+.header {
+  width: 100%;
+  padding: 1%;
+  /*display: flex;*/
+  background-color: green;
+  color: white;
+  text-align: center;
+}
+.email-header {
+  color: white;
+  text-align: left;
+}

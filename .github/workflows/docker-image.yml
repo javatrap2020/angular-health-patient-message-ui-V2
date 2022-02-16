@@ -3,16 +3,19 @@ name: Docker Image CI
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
 
 jobs:
-
-  build:
-
+  continuous-integration:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v2
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      # Step 1
+      - uses: actions/checkout@v2
+      - name: Build @ push Docker image
+        uses: mr-smithers-excellent/docker-build-push@v5
+        with:
+          image: javatrap/angular-health
+          tags: latest
+          registry: docker.io
+          dockerfile: Dockerfile
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}

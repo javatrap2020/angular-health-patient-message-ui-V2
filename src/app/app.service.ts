@@ -21,4 +21,11 @@ export class AppService {
     patient.id = id;
     return this.http.post(this.rootURL + PATIENT_URL, patient);
   }
+
+  updatePatient(patient: any, id: number) {
+    patient.id = id;
+    return this.http.put(this.rootURL + PATIENT_URL, patient);
+  }
+
+
 }

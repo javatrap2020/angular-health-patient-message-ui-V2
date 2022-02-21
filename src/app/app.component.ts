@@ -3,6 +3,8 @@ import {AppService} from "./app.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {takeUntil} from "rxjs/operators";
 import {Subject} from "rxjs";
+import {PATIENTS_URL, SLASH} from "./utils/constants";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-root',
@@ -11,7 +13,7 @@ import {Subject} from "rxjs";
 })
 export class AppComponent implements OnDestroy {
 
-  constructor(private appService: AppService) {
+  constructor(private router:Router, private route:ActivatedRoute , private appService: AppService) {
   }
 
   title = 'angular-health-patient-message-ui-2';
@@ -37,6 +39,15 @@ export class AppComponent implements OnDestroy {
     });
   }
 
+  onSubmitUpdate() {
+    this.appService.updatePatient(this.patientForm.value, this.patientCount).pipe(takeUntil(this.destroy$)).subscribe(data => {
+      console.log('message::::', data);
+      this.patientCount = this.patientCount;
+      console.log(this.patientCount);
+      this.patientForm.reset();
+    });
+  }
+
   getAllPatients() {
     // @ts-ignore
     this.appService.getPatients().pipe(takeUntil(this.destroy$)).subscribe((patients: any[]) => {
@@ -52,6 +63,16 @@ export class AppComponent implements OnDestroy {
 
   ngOnInit() {
     this.getAllPatients();
+  }
+
+  reloadCurrentPageUpdate() {
+    if (this.router && this.router.url === SLASH) {
+      PATIENTS_URL
+      window.location.reload();
+    } else {
+      // @ts-ignore
+      this.router.navigate([PATIENTS_URL]);
+    }
   }
 
 }

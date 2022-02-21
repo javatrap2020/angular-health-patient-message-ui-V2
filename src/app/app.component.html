@@ -29,6 +29,39 @@
         <button type="submit" [disabled]="!patientForm.valid" class="btn btn-danger">Create</button>
       </form>
     </div>
+
+
+    <div class="col-md-7 patientfm">
+      <h2>Update Patient</h2>
+      <form [formGroup]="patientForm" (ngSubmit)="onSubmitUpdate()">
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label for="exampleInputName">Name</label>
+            <input type="text" class="form-control" formControlName="name" id="exampleInputName" placeholder="Name">
+          </div>
+          <!--          <div class="form-group col-md-6">-->
+          <!--            <label for="exampleInputLastName">Last Name</label>-->
+          <!--            <input type="text" class="form-control" formControlName="lastName" id="exampleInputLastName" placeholder="Last Name">-->
+          <!--          </div>-->
+        </div>
+        <div class="row">
+          <div class="form-group col-md-12">
+            <label for="exampleInputEmail">Email</label>
+            <input type="text" class="form-control" formControlName="email" id="exampleInputEmail" placeholder="Email">
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-md-13">
+            <label for="exampleInputMessage">Message</label>
+            <input type="text" class="form-control" formControlName="message" id="exampleInputMessage" placeholder="Message">
+          </div>
+        </div>
+        <button type="submit" [disabled]="!patientForm.valid" class="btn btn-danger">Update</button>
+        <button (click)="reloadCurrentPageUpdate()">Reload Page</button>
+      </form>
+    </div>
+
+
     <div class="col-md-4 patientfm">
       <app-display-board [patientCount]="patientCount" (getPatientEvent)="getAllPatients()"></app-display-board>
     </div>

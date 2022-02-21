@@ -20,7 +20,7 @@ export class AppComponent implements OnDestroy {
     name: new FormControl('', Validators.nullValidator || Validators.required),
     // lastName: new FormControl('', Validators.nullValidator || Validators.required),
     email: new FormControl('', Validators.nullValidator || Validators.required),
-    // message: new FormControl('', Validators.nullValidator || Validators.required),
+    message: new FormControl('', Validators.nullValidator || Validators.required),
   });
 
   patients: any[] = [];

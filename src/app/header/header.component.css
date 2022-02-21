@@ -4,9 +4,12 @@
   /*display: flex;*/
   background-color: green;
   color: white;
-  text-align: center;
+  text-align: left;
 }
 .email-header {
   color: white;
   text-align: left;
+}
+.logo-header {
+  text-align: center;
 }

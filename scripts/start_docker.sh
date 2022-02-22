@@ -14,4 +14,7 @@ yum update -y
 aws s3 cp s3://bucket-v2-my/.env /home/ec2-user/server
 aws s3 cp s3://bucket-v2-my/docker-compose.yml /home/ec2-user/server
 exit
+cd /home/ec2-user/server
+sudo rm -rf .dockerignore
+cd /home/ec2-user
 

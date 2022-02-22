@@ -1,4 +1,6 @@
 #!/bin/sh
+cd /home/ec2-user/server
+sudo rm -rf .dockerignore
 cd /home/ec2-user
 sudo docker ps -a
 sudo docker stop spring-boot-docker2

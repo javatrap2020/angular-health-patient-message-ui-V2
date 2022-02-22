@@ -11,4 +11,4 @@ sudo rm -rf docker-image.yml
 cd /home/ec2-user/server
 sudo docker-compose up
 sudo rm -rf .dockerignore
-sudo rm -rf .gitignor
+sudo rm -rf .gitignore

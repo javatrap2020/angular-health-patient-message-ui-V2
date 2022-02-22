@@ -1,4 +1,5 @@
 #!/bin/sh
+sudo service codedeploy-agent restart
 sudo service --status-all
 sudo service docker start
 sudo service docker start

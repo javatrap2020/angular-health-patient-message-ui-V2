@@ -1,6 +1,4 @@
 #!/bin/sh
-cd /home/ec2-user/server
-sudo rm -rf .dockerignore
 cd /home/ec2-user
 sudo docker ps -a
 sudo docker stop spring-boot-docker2
@@ -12,5 +10,6 @@ sudo docker image rmi -f javatrap/spring-boot-docker2
 sudo docker image rmi -f javatrap/angular-health
 cd /home/ec2-user/server
 sudo rm docker-compose.yml
+sudo rm -rf .dockerignore
 cd /home/ec2-user
 

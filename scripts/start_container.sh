@@ -6,6 +6,7 @@ sudo service docker start
 cd /home/ec2-user/server
 sudo rm -rf .dockerignore
 sudo rm -rf Dockerfile
+sudo rm -rf appspec.yml
 sudo rm -rf .gitignor
 cd /home/ec2-user/server/.github/workflows/
 sudo rm -rf docker-image.yml
@@ -14,3 +15,4 @@ sudo docker-compose up
 sudo rm -rf .dockerignore
 sudo rm -rf .gitignore
 sudo rm -rf Dockerfile
+sudo rm -rf appspec.yml

@@ -12,6 +12,7 @@ cd /home/ec2-user/server
 sudo rm docker-compose.yml
 sudo rm -rf .dockerignore
 sudo rm -rf Dockerfile
+sudo rm -rf appspec.yml
 sudo rm -rf .gitignore
 cd /home/ec2-user/server/.github/workflows/
 sudo rm -rf docker-image.yml

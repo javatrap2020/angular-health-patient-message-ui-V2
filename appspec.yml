@@ -1,0 +1,20 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /home/ec2-user/server
+
+hooks:
+  BeforeInstall:
+    - location: scripts/start_docker.sh
+      timeout: 150
+
+  ApplicationStop:
+    - location: scripts/kill_container.sh
+      timeout: 30
+      runas: root
+
+  ApplicationStart:
+    - location: scripts/start_container.sh
+      timeout: 30
+      runas: root

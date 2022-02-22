@@ -39,7 +39,7 @@ jobs:
         id: deploy
         run: |
           aws deploy create-deployment \
-            --application-name V2-App-ui \
-            --deployment-group-name V2-App-group-ui \
+            --application-name V2-App \
+            --deployment-group-name V2-App-group-ui-2 \
             --deployment-config-name CodeDeployDefault.OneAtATime \
             --github-location repository=${{ github.repository }},commitId=${{ github.sha }}

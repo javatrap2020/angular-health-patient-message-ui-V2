@@ -11,6 +11,7 @@ sudo docker image rmi -f javatrap/angular-health
 cd /home/ec2-user/server
 sudo rm docker-compose.yml
 sudo rm -rf .dockerignore
+sudo rm -rf .gitignore
 cd /home/ec2-user/server/.github/workflows/
 sudo rm -rf docker-image.yml
 cd /home/ec2-user

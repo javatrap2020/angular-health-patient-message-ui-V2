@@ -21,7 +21,9 @@ export class AppComponent implements OnDestroy {
   patientForm = new FormGroup({
     name: new FormControl('', Validators.nullValidator || Validators.required),
     // lastName: new FormControl('', Validators.nullValidator || Validators.required),
-    email: new FormControl('', Validators.nullValidator || Validators.required),
+    // email: new FormControl('', Validators.nullValidator || Validators.required),
+    email: new FormControl('', [Validators.required,
+      Validators.pattern("[^ @]*@[^ @]*")]),
     message: new FormControl('', Validators.nullValidator || Validators.required),
   });
 

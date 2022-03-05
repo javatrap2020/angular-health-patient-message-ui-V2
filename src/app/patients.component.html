@@ -15,6 +15,10 @@
       <td>{{patient.name}}</td>
       <td>{{patient.email}}</td>
       <td>{{patient.message}}</td>
+      <td>
+        <span class="delete" (click)="deletePatientN(patient.email)">Delete</span>
+      </td>
+
     </tr>
     </tbody>
   </table>

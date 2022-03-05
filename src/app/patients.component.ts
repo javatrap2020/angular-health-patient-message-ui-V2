@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from "@angular/core";
+import {AppService} from "./app.service";
 
 @Component({
   selector: 'app-patients',
@@ -7,10 +8,30 @@ import {Component, Input, OnInit} from "@angular/core";
 })
 
 export class PatientsComponent implements OnInit{
-  constructor() {
+
+  Patient: any = [];
+
+  constructor(public restApi: AppService) {
   }
+
   @Input() patients: any[] | undefined;
+
   ngOnInit(): void {
+    this.loadPatients();
+  }
+
+  loadPatients() {
+    return this.restApi.getPatients().subscribe((data: {}) => {
+      this.Patient = data;
+    });
+  }
+
+  deletePatientN(email: string | undefined) {
+    if (window.confirm('Are you sure, you want to  delete?')) {
+      this.restApi.deletePatient(email).subscribe((data) => {
+        this.loadPatients();
+      });
+    }
   }
 
 }

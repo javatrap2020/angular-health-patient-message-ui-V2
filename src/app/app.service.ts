@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {API_URL, PATIENT_URL, PATIENTS_URL, SLASH} from "./utils/constants";
+import {API_URL, EMAIL, PATIENT_URL, PATIENTS_URL, SLASH} from "./utils/constants";
 import { throwError } from 'rxjs';
 import {Patient} from "./api/models/Patient";
 import {catchError, retry} from "rxjs/operators";
@@ -37,7 +37,7 @@ export class AppService {
   }
 
   deletePatient(email: string | undefined) {
-    return this.http.delete<Patient>(this.rootURL + PATIENT_URL + SLASH + email, this.httpOptions).pipe(retry(1), catchError(this.handleError));
+    return this.http.delete<Patient>(this.rootURL + PATIENT_URL + EMAIL + SLASH + email, this.httpOptions).pipe(retry(1), catchError(this.handleError));
   }
 
   handleError(error: any) {

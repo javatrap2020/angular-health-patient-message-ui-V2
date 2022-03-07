@@ -27,6 +27,13 @@ export class AppComponent implements OnDestroy {
     message: new FormControl('', Validators.nullValidator || Validators.required),
   });
 
+  patientFormUpdate = new FormGroup({
+    name: new FormControl('', Validators.nullValidator || Validators.required),
+    email: new FormControl('', [Validators.required,
+      Validators.pattern("[^ @]*@[^ @]*")]),
+    message: new FormControl('', Validators.nullValidator || Validators.required),
+  });
+
   patients: any[] = [];
   patientCount = 0;
 
@@ -42,11 +49,11 @@ export class AppComponent implements OnDestroy {
   }
 
   onSubmitUpdate() {
-    this.appService.updatePatient(this.patientForm.value, this.patientCount).pipe(takeUntil(this.destroy$)).subscribe(data => {
+    this.appService.updatePatient(this.patientFormUpdate.value, this.patientCount).pipe(takeUntil(this.destroy$)).subscribe(data => {
       console.log('message::::', data);
       this.patientCount = this.patientCount;
       console.log(this.patientCount);
-      this.patientForm.reset();
+      this.patientFormUpdate.reset();
     });
   }
 

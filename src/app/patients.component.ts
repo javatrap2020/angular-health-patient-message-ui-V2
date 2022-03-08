@@ -27,7 +27,7 @@ export class PatientsComponent implements OnInit{
   }
 
   deletePatientN(email: string | undefined) {
-    if (window.confirm('Are you sure, you want to  delete?')) {
+    if (window.confirm('Are you sure, you want to  delete?{email}')) {
       this.restApi.deletePatient(email).subscribe((data) => {
         this.loadPatients();
       });
